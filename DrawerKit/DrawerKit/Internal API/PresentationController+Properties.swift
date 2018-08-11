@@ -12,6 +12,13 @@ extension PresentationController {
     var containerViewHeight: CGFloat {
         return containerViewSize.height
     }
+    
+    var drawerCollapsedHeight: CGFloat {
+        guard let presentedVC = presentedViewController as? DrawerPresentable else { return 0 }
+        let drawerCollapsedHeight = presentedVC.heightOfCollapsedDrawer
+        return GeometryEvaluator.drawerCollapsedH(drawerCollapsedHeight: drawerCollapsedHeight,
+                                                  containerViewHeight: containerViewHeight)
+    }
 
     var drawerPartialHeight: CGFloat {
         guard let presentedVC = presentedViewController as? DrawerPresentable else { return 0 }
@@ -50,6 +57,7 @@ extension PresentationController {
             currentDrawerY =
                 GeometryEvaluator.drawerPositionY(for: newValue,
                                                   drawerPartialHeight: drawerPartialHeight,
+                                                  drawerCollapsedHeight: drawerCollapsedHeight,
                                                   containerViewHeight: containerViewHeight,
                                                   drawerFullY: drawerFullY)
         }
@@ -94,6 +102,7 @@ extension PresentationController {
             let positionY =
                 GeometryEvaluator.drawerPositionY(for: state,
                                                   drawerPartialHeight: drawerPartialHeight,
+                                                  drawerCollapsedHeight: drawerCollapsedHeight,
                                                   containerViewHeight: containerViewHeight,
                                                   drawerFullY: drawerFullY)
 
@@ -116,6 +125,7 @@ extension PresentationController {
         let positionY =
             GeometryEvaluator.drawerPositionY(for: state,
                                               drawerPartialHeight: drawerPartialHeight,
+                                              drawerCollapsedHeight: drawerCollapsedHeight,
                                               containerViewHeight: containerViewHeight,
                                               drawerFullY: drawerFullY)
 

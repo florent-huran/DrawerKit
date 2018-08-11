@@ -67,8 +67,9 @@ extension PresentationController {
             let isEndingStateCollapsed = (endingState == .collapsed)
 
             let shouldDismiss =
-                (isStartingStateCollapsed && endingPosition == .start) ||
-                    (isEndingStateCollapsed && endingPosition == .end)
+                self.configuration.canDismissCollapsedDrawer &&
+                    ((isStartingStateCollapsed && endingPosition == .start) ||
+                        (isEndingStateCollapsed && endingPosition == .end))
 
             if shouldDismiss {
                 self.presentedViewController.dismiss(animated: true)
@@ -163,12 +164,14 @@ extension PresentationController {
         let startingPositionY =
             GeometryEvaluator.drawerPositionY(for: startingState,
                                               drawerPartialHeight: drawerPartialHeight,
+                                              drawerCollapsedHeight: drawerCollapsedHeight,
                                               containerViewHeight: containerViewHeight,
                                               drawerFullY: drawerFullY)
 
         let endingPositionY =
             GeometryEvaluator.drawerPositionY(for: endingState,
                                               drawerPartialHeight: drawerPartialHeight,
+                                              drawerCollapsedHeight: drawerCollapsedHeight,
                                               containerViewHeight: containerViewHeight,
                                               drawerFullY: drawerFullY)
 
