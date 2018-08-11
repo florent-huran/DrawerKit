@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "DrawerKit"
-  s.version       = "0.6.0"
+  s.version       = "0.6.1"
   s.summary       = "An implementation of an interactive and animated view, similar to what you see in Apple Maps"
 
   s.description   = <<-DESC
@@ -11,11 +11,11 @@ in the map when using the Apple Maps app. The library is highly configurable, wi
 being added regularly.
                    DESC
 
-  s.homepage      = "https://github.com/Babylonpartners/DrawerKit"
+  s.homepage      = "https://github.com/florent-huran/DrawerKit"
   s.license       = { :type => "MIT", :file => "LICENSE" }
   s.author        = { "Wagner Truppel" => "ios-developers@babylonhealth.com" }
   s.platform      = :ios, "10.0"
-  s.source        = { :git => "https://github.com/Babylonpartners/DrawerKit.git", :tag => "#{s.version}" }
+  s.source        = { :git => "https://github.com/florent-huran/DrawerKit.git", :tag => "#{s.version}" }
   s.source_files  = "DrawerKit/**/*.{swift}"
 
 end
