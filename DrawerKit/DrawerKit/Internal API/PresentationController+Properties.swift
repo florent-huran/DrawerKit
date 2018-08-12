@@ -84,7 +84,7 @@ extension PresentationController {
         }
 
         set {
-            let radius = min(max(newValue, 0), maximumCornerRadius)
+            let radius = min(max(newValue, minimumCornerRadius), maximumCornerRadius)
             presentedView?.layer.cornerRadius = radius
             presentedView?.layer.masksToBounds = true
             if #available(iOS 11.0, *) {
@@ -109,7 +109,7 @@ extension PresentationController {
             return maximumCornerRadius * min(positionY, DrawerGeometry.statusBarHeight) / DrawerGeometry.statusBarHeight
             
         case .neverAnimate:
-            return configuration.maximumCornerRadius
+            return maximumCornerRadius
         }
     }
 

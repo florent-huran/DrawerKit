@@ -5,6 +5,7 @@ extension PresentationController {
         let startingState = currentDrawerState
 
         let maxCornerRadius = maximumCornerRadius
+        let minCornerRadius = minimumCornerRadius
         let endingCornerRadius = cornerRadius(at: endingState)
 
         let (startingPositionY, endingPositionY) = positionsY(startingState: startingState,
@@ -85,7 +86,7 @@ extension PresentationController {
                 (isEndingStateCollapsedOrFullyExpanded && endingPosition == .end) ||
                 (isStartingStateCollapsedOrFullyExpanded && endingPosition == .start)
 
-            if maxCornerRadius != 0 && shouldSetCornerRadiusToZero {
+            if maxCornerRadius != 0 && shouldSetCornerRadiusToZero && maxCornerRadius != minCornerRadius {
                 self.currentDrawerCornerRadius = 0
             }
 

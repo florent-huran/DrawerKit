@@ -46,6 +46,10 @@ extension DrawerAnimationInfo {
     public var maximumCornerRadius: CGFloat {
         return configuration.maximumCornerRadius
     }
+    
+    public var minimumCornerRadius: CGFloat {
+        return configuration.minimumCornerRadius
+    }
 
     public var isDrawerDraggable: Bool {
         return configuration.isDrawerDraggable
