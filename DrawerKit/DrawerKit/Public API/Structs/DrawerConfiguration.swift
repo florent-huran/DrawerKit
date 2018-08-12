@@ -142,9 +142,14 @@ public struct DrawerConfiguration {
     public var lowerMarkGap: CGFloat
 
     /// The animating drawer also animates the radius of its top left and top right
-    /// corners, from 0 to the value of this property. Setting this to 0 prevents any
+    /// corners, from minimumCornerRadius to the value of this property. Setting this to 0 prevents any
     /// corner animations from taking place. The default value is 15 points.
     public var maximumCornerRadius: CGFloat
+    
+    /// The animating drawer also animates the radius of its top left and top right
+    /// corners, from 0 to the value of this property. Setting this to 0 will animate the corners
+    /// The default value is 0 points.
+    public var minimumCornerRadius: CGFloat
 
     /// How the drawer should animate its corner radius if specified. The
     /// default value is `maximumAtPartialY`.
@@ -179,6 +184,7 @@ public struct DrawerConfiguration {
                 upperMarkGap: CGFloat = 40,
                 lowerMarkGap: CGFloat = 40,
                 maximumCornerRadius: CGFloat = 15,
+                minimumCornerRadius: CGFloat = 0,
                 cornerAnimationOption: CornerAnimationOption = .maximumAtPartialY,
                 handleViewConfiguration: HandleViewConfiguration? = HandleViewConfiguration(),
                 drawerBorderConfiguration: DrawerBorderConfiguration? = nil,
@@ -205,6 +211,7 @@ public struct DrawerConfiguration {
         self.upperMarkGap = max(0, upperMarkGap)
         self.lowerMarkGap = max(0, lowerMarkGap)
         self.maximumCornerRadius = max(0, maximumCornerRadius)
+        self.minimumCornerRadius = max(0, minimumCornerRadius)
         self.cornerAnimationOption = cornerAnimationOption
         self.handleViewConfiguration = handleViewConfiguration
         self.drawerBorderConfiguration = drawerBorderConfiguration
