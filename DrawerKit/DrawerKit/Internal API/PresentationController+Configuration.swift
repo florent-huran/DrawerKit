@@ -40,10 +40,6 @@ extension PresentationController {
     var maximumCornerRadius: CGFloat {
         return configuration.maximumCornerRadius
     }
-    
-    public var minimumCornerRadius: CGFloat {
-        return configuration.minimumCornerRadius
-    }
 
     var isDrawerDraggable: Bool {
         return configuration.isDrawerDraggable
